@@ -1,0 +1,37 @@
+model Bookmark {
+    id             String   @id @default(cuid())
+    userId         String
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    tweetId        String
+    tweetUrl       String
+    authorId       String
+    authorUsername String
+    authorName     String
+    authorAvatar   String
+    tweetText      String
+    tweetCreatedAt DateTime
+    mediaUrls      Json?
+    s3Keys         Json?
+    categories     Category @relation("BookmarkCategories", fields: [categoryId], references: [id])
+    tags           Tag[]    @relation("BookmarkTags")
+    notes          String?  @db.text
+    isArchived     Boolean  @default(false)
+    createdAt      DateTime @default(now())
+    bookmarkedAt   DateTime @default(now())
+    udpatedAt      DateTime @updatedAt
+    categoryId     String
+
+    @@index([userId, bookmarkedAt])
+    @@index([tweetId])
+    @@index([userId, isArchived])
+    @@map("bookmarks")
+}
+
+model Tag {
+    id        String     @unique @default(cuid())
+    name      String
+    bookmarks Bookmark[] @relation("BookmarkTags")
+    createdAt DateTime   @default(now())
+
+    @@map("tags")
+}
