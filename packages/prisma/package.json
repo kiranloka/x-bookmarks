@@ -1,9 +1,8 @@
 {
   "name": "@db/prisma",
   "version": "0.0.0",
-  "devDependencies": {
-    "@types/pg": "^8.15.6",
-    "prisma": "^7.0.0"
+  "exports": {
+    ".": "./src/index.ts"
   },
   "scripts": {
     "db:generate": "prisma generate",
@@ -15,5 +14,11 @@
     "@prisma/client": "^7.0.0",
     "dotenv": "^17.2.3",
     "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.6",
+    "prisma": "^7.0.0",
+    "typescript": "^5.0.0",
+    "@repo/typescript-config": "workspace:*"
   }
 }

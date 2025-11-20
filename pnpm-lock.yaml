@@ -29,6 +29,9 @@ importers:
       '@nestjs/platform-express':
         specifier: ^11.0.1
         version: 11.1.8(@nestjs/common@11.1.8(reflect-metadata@0.2.2)(rxjs@7.8.2))(@nestjs/core@11.1.8)
+      '@prisma/client':
+        specifier: ^7.0.0
+        version: 7.0.0(prisma@7.0.0(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.2))(typescript@5.9.2)
       dotenv:
         specifier: ^17.2.3
         version: 17.2.3
@@ -39,6 +42,9 @@ importers:
         specifier: ^7.8.1
         version: 7.8.2
     devDependencies:
+      '@db/prisma':
+        specifier: workspace:*
+        version: link:../../packages/prisma
       '@eslint/eslintrc':
         specifier: ^3.2.0
         version: 3.3.1
@@ -197,12 +203,18 @@ importers:
         specifier: ^8.16.3
         version: 8.16.3
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/pg':
         specifier: ^8.15.6
         version: 8.15.6
       prisma:
         specifier: ^7.0.0
         version: 7.0.0(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.2)
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.2
 
   packages/typescript-config: {}
 
