@@ -8,9 +8,7 @@ export class UserService {
 
   async createUser(data: Prisma.UserCreateInput): Promise<User> {
     return this.db.user.create({
-      ...data,
-
-      lastSyncAt: data.lastSyncAt || Date.now(),
+      data,
     });
   }
 
